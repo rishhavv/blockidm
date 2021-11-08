@@ -1,15 +1,16 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.22 <0.9.0;
+pragma solidity >=0.4.0 <0.9.0;
+pragma experimental ABIEncoderV2;
 contract Hello {
 
    address contractOwner;
    uint public permitno=0;
 
-   struct Date{
-      uint day;
-      uint month;
-      uint year;
-   }
+   // struct Date{
+   //    uint day;
+   //    uint month;
+   //    uint year;
+   // }
 
    struct user{
       string userId;
@@ -22,24 +23,25 @@ contract Hello {
       string name;
    }
 
-   mapping(string=>user)public userDetails;
+   mapping(bytes32=>user)public userDetails;
 
-   constructor() public{
-      contractOwner=msg.sender;
-   }
+   // constructor() public{
+   //    contractOwner=msg.sender;
+   // }
 
 
-   function issuePermit(string memory _userId,string memory _division,string _permitno,string _signatory) public{
+   function issuePermit(string memory _userId,string memory _division,string memory _permitno,string memory _signatory) public{
       permitno++;
-
-      string combined=_userId+_division+_permitno+_signatory;
-      string _hash1=sha256(combined);
-      string _hash2=sha256(_hash1);
-      userDetails[_hash1]=user(_userId,_permitno,_division,_signatory); //["Asddsadsk6484"]=>("raman","55","A","ramesh","hash for mongo")
+      string memory _name="Rajesh";
+      string memory combined=string(abi.encodePacked(_userId,_division,_permitno,_signatory));
+      bytes32 _hash1=sha256(abi.encode(combined));
+      //bytes32 _hash2=sha256(_hash1);
+      userDetails[_hash1]=user(_userId,_permitno,_division,_signatory,_name); //["Asddsadsk6484"]=>("raman","55","A","ramesh","hash for mongo")
    }
 
-   function isValid(string _hash1) view public{
-      return (userDetails[_hash1]!=address(0)?true:false);
+   function isValid(bytes32 _hash1) view public returns(bool){
+      bytes memory tempEmptyStringTest = bytes(userDetails[_hash1].userId); // Uses memory
+      return (tempEmptyStringTest.length==0?false:true);
    }
 
 }

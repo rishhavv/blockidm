@@ -139,3 +139,35 @@
 22:20:48.181167 db@open done T·249.7984ms
 23:35:19.488528 db@close closing
 23:35:19.489930 db@close done T·1.4016ms
+=============== Nov 8, 2021 (IST) ===============
+22:54:35.989688 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+22:54:35.996353 version@stat F·[2 1] S·180KiB[119KiB 60KiB] Sc·[0.50 0.00]
+22:54:35.996353 db@open opening
+22:54:35.996353 journal@recovery F·1
+22:54:35.998349 journal@recovery recovering @32
+22:54:36.187279 memdb@flush created L0@34 N·4 S·6KiB "Sna..tor,v2931":"unc..own,v2930"
+22:54:36.189983 version@stat F·[3 1] S·186KiB[125KiB 60KiB] Sc·[0.75 0.00]
+22:54:36.498347 db@janitor F·6 G·0
+22:54:36.498424 db@open done T·502.0706ms
+23:06:50.573974 db@close closing
+23:06:50.575025 db@close done T·1.0512ms
+=============== Nov 8, 2021 (IST) ===============
+23:06:55.312838 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:06:55.313351 version@stat F·[3 1] S·186KiB[125KiB 60KiB] Sc·[0.75 0.00]
+23:06:55.313351 db@open opening
+23:06:55.313351 journal@recovery F·1
+23:06:55.315399 journal@recovery recovering @35
+23:06:55.391919 memdb@flush created L0@37 N·325 S·22KiB "+v*..q\x87\x1c,v3258":"\xb1\"g..ӝ\xf0,v3255"
+23:06:55.394099 version@stat F·[4 1] S·209KiB[148KiB 60KiB] Sc·[1.00 0.00]
+23:06:55.471737 db@janitor F·7 G·0
+23:06:55.471737 db@open done T·158.3858ms
+23:06:55.471737 table@compaction L0·4 -> L1·1 S·209KiB Q·3260
+23:06:55.644860 table@build created L1@40 N·2441 S·162KiB "\x02d\xfc..\x19Ba,v428":"\xfe\x88\xcf..H\xef\xcc,v361"
+23:06:55.644860 version@stat F·[0 1] S·162KiB[0B 162KiB] Sc·[0.00 0.00]
+23:06:55.673744 table@compaction committed F-4 S-47KiB Ke·0 D·784 T·202.0072ms
+23:06:55.674276 table@remove removed @34
+23:06:55.674830 table@remove removed @31
+23:06:55.675337 table@remove removed @28
+23:06:55.675337 table@remove removed @27
+23:59:30.615757 db@close closing
+23:59:30.616272 db@close done T·515.8µs

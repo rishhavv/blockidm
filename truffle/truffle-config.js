@@ -36,7 +36,12 @@ module.exports = {
    */
    http: {
     host:"localhost",
-    port:8545
+    port:8545,
+    network_id: "*",       // Any network (default: none)
+    from:"cc9edf35d992c680aef7ae4d83c6ce9c2582b075",
+    gas:8000000,
+    gasprice:0,
+    Websocket:true
     },
   networks: {
     // Useful for testing. The `development` name is special - truffle uses it by default
@@ -49,8 +54,10 @@ module.exports = {
       host: "127.0.0.1",     // Localhost (default: none)
       port: 8545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
-      from:"0xcc9edf35d992c680aef7ae4d83c6ce9c2582b075",
-      gas:200000
+      from:"cc9edf35d992c680aef7ae4d83c6ce9c2582b075",
+      gas:8000000,
+      gasprice:0,
+      Websocket:true
      },
     // Another network with more advanced options...
     // advanced: {
