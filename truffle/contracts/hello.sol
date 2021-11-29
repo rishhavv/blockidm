@@ -30,13 +30,14 @@ contract Hello {
    // }
 
 
-   function issuePermit(string memory _userId,string memory _division,string memory _permitno,string memory _signatory) public{
+   function issuePermit(string memory _userId,string memory _division,string memory _permitno,string memory _signatory) public returns(bytes32){
       permitno++;
       string memory _name="Rajesh";
       string memory combined=string(abi.encodePacked(_userId,_division,_permitno,_signatory));
       bytes32 _hash1=sha256(abi.encode(combined));
       //bytes32 _hash2=sha256(_hash1);
       userDetails[_hash1]=user(_userId,_permitno,_division,_signatory,_name); //["Asddsadsk6484"]=>("raman","55","A","ramesh","hash for mongo")
+      return _hash1;
    }
 
    function isValid(bytes32 _hash1) view public returns(bool){
