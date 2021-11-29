@@ -42,7 +42,20 @@ contract Hello {
 
    function isValid(bytes32 _hash1) view public returns(bool){
       bytes memory tempEmptyStringTest = bytes(userDetails[_hash1].userId); // Uses memory
-      return (tempEmptyStringTest.length==0?false:true);
+      return !(tempEmptyStringTest.length==0);
    }
+
+   function all(bytes32[]  memory _hashes) public view returns(user[] memory){
+      uint size=permitno;
+      user[] memory _allUser=new user[](size);
+      for(uint i=0;i<permitno;i++){
+         bytes32 _userhash=_hashes[i];
+         user memory a=userDetails[_userhash];
+         _allUser[i]=user(a.userId,a.permitno,a.division,a.signatory,a.name);
+      }
+      return _allUser;
+   }
+
+   //getUserData , UpdatePermit, cancelPermit, getDataLocationWise
 
 }
