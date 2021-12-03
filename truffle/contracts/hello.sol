@@ -15,12 +15,13 @@ contract Hello {
    struct user{
       string userId;
       string permitno;
-      // Date startDate;
       string division;
-      // Date endDate;
       string signatory;
-     // string hashSec;
+      //string hash2;
       string name;
+      uint startDate;
+      uint endDate;
+      bool canceled;
    }
 
    mapping(bytes32=>user)public userDetails;
@@ -30,19 +31,30 @@ contract Hello {
    // }
 
 
-   function issuePermit(string memory _userId,string memory _division,string memory _permitno,string memory _signatory) public returns(bytes32){
+   function issuePermit(string memory _userId,string memory _division,string memory _permitno,string memory _name,string memory _signatory,uint _start,uint _end) public returns(bytes32){
       permitno++;
-      string memory _name="Rajesh";
-      string memory combined=string(abi.encodePacked(_userId,_division,_permitno,_signatory));
+      bool _canceled=false;
+      string memory combined=string(abi.encodePacked(_userId,_division,_permitno,_signatory,_start,_end));
       bytes32 _hash1=sha256(abi.encode(combined));
       //bytes32 _hash2=sha256(_hash1);
-      userDetails[_hash1]=user(_userId,_permitno,_division,_signatory,_name); //["Asddsadsk6484"]=>("raman","55","A","ramesh","hash for mongo")
+      if(notexist(_hash1)==true &&  block.timestamp<_end){
+      userDetails[_hash1]=user(_userId,_permitno,_division,_signatory,_name,_start,_end,_canceled); //["Asddsadsk6484"]=>("raman","55","A","ramesh","hash for mongo")
+      }
       return _hash1;
    }
 
    function isValid(bytes32 _hash1) view public returns(bool){
       bytes memory tempEmptyStringTest = bytes(userDetails[_hash1].userId); // Uses memory
-      return !(tempEmptyStringTest.length==0);
+      bool temp=(tempEmptyStringTest.length==0?false:true);
+      if(temp==true && block.timestamp<userDetails[_hash1].endDate && userDetails[_hash1].canceled==false ){
+         return true;
+      }
+      return false;
+   } 
+   
+   function notexist(bytes32 _hash1) view public returns(bool){
+      bytes memory tempEmptyStringTest = bytes(userDetails[_hash1].userId); // Uses memory
+      return (tempEmptyStringTest.length==0?true:false);
    }
 
    function all(bytes32[]  memory _hashes) public view returns(user[] memory){
@@ -51,9 +63,16 @@ contract Hello {
       for(uint i=0;i<permitno;i++){
          bytes32 _userhash=_hashes[i];
          user memory a=userDetails[_userhash];
-         _allUser[i]=user(a.userId,a.permitno,a.division,a.signatory,a.name);
+         _allUser[i]=user(a.userId,a.permitno,a.division,a.signatory,a.name,a.startDate,a.endDate,a.canceled);
       }
       return _allUser;
+   }
+
+   // function updatePermit(bytes32 _hash1,uint _newend)public{
+
+   // }
+   function cancelPermit(bytes32 _hash1)public{
+      userDetails[_hash1].canceled=true;
    }
 
    //getUserData , UpdatePermit, cancelPermit, getDataLocationWise
