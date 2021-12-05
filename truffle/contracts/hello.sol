@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: MIT
 pragma solidity >=0.4.0 <0.9.0;
 pragma experimental ABIEncoderV2;
 contract Hello {
@@ -55,7 +54,16 @@ contract Hello {
       }
       return _allUser;
    }
+   
+   function UpdatePermit(bytes32 _hash,string memory _userId,string memory _division,string memory _permitno,string memory _signatory) public returns(bytes32){
+       //user memory temp = userDetails[_hash];
+       string memory _name="Rajesh";
+       userDetails[_hash]=user(_userId,_permitno,_division,_signatory,_name);
+       return _hash;
+       
+       
+   }
 
-   //getUserData , UpdatePermit, cancelPermit, getDataLocationWise
+   //getUserData , UpdatePermit, cancelPermit/DeletePermit, getDataLocationWise
 
 }
