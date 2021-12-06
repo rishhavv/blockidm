@@ -1,0 +1,274 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "_hashes",
+						"type": "bytes32[]"
+					}
+				],
+				"name": "all",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "userId",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "permitno",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "division",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "signatory",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "startDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "endDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "canceled",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Hello.user[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_hash1",
+						"type": "bytes32"
+					}
+				],
+				"name": "cancelPermit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_hash1",
+						"type": "bytes32"
+					}
+				],
+				"name": "isValid",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_userId",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_division",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_permitno",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_signatory",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_start",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_end",
+						"type": "uint256"
+					}
+				],
+				"name": "issuePermit",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_hash1",
+						"type": "bytes32"
+					}
+				],
+				"name": "notexist",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "permitno",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "userDetails",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "userId",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "permitno",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "division",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "signatory",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "endDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "canceled",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"truffle/contracts/hello.sol": "Hello"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"truffle/contracts/hello.sol": {
+			"keccak256": "0xc63ef30c8348ab591cf2df4b0e12a571588a2fa6808716e0e107e51c154a2e6f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://502ac91fa1e83ebcb130d3185d55e548ea15637beb28f40df430b7b33c1a339b",
+				"dweb:/ipfs/QmVNoGCihRLQ3YsFBuMwHVAkpAsW3HhQAawEsnWX4Wn14D"
+			]
+		}
+	},
+	"version": 1
+}
