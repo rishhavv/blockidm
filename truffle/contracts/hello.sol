@@ -14,7 +14,7 @@ contract Hello {
 
    struct user{
       string userId;
-      string permitno;
+      uint permitno;
       string division;
       string signatory;
       //string hash2;
@@ -26,21 +26,22 @@ contract Hello {
 
    mapping(bytes32=>user)public userDetails;
 
-   // constructor() public{
-   //    contractOwner=msg.sender;
-   // }
+   constructor() public{
+      contractOwner=msg.sender;
+      permitno++;
+   }
 
 
-   function issuePermit(string memory _userId,string memory _division,string memory _permitno,string memory _name,string memory _signatory) public returns(bytes32){
+   function issuePermit(string memory _userId,string memory _division,string memory _name,string memory _signatory) public returns(bytes32){
       permitno++;
       bool _canceled=false;
       uint _start=block.timestamp;// current timestamp
       uint _end=_start+31556926; //1 year valid
-      string memory combined=string(abi.encodePacked(_userId,_division,_permitno,_signatory,_start,_end));
+      string memory combined=string(abi.encodePacked(_userId,_division,permitno,_signatory,_start,_end));
       bytes32 _hash1=sha256(abi.encode(combined));
       //bytes32 _hash2=sha256(_hash1);
       if(notexist(_hash1)==true &&  block.timestamp<_end){
-      userDetails[_hash1]=user(_userId,_permitno,_division,_signatory,_name,_start,_end,_canceled); //["Asddsadsk6484"]=>("raman","55","A","ramesh","hash for mongo")
+      userDetails[_hash1]=user(_userId,permitno,_division,_signatory,_name,_start,_end,_canceled); //["Asddsadsk6484"]=>("raman","55","A","ramesh","hash for mongo")
       }
       return _hash1;
    }
