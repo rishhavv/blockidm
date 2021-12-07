@@ -31,9 +31,11 @@ contract Hello {
    // }
 
 
-   function issuePermit(string memory _userId,string memory _division,string memory _permitno,string memory _name,string memory _signatory,uint _start,uint _end) public returns(bytes32){
+   function issuePermit(string memory _userId,string memory _division,string memory _permitno,string memory _name,string memory _signatory) public returns(bytes32){
       permitno++;
       bool _canceled=false;
+      uint _start=block.timestamp;// current timestamp
+      uint _end=_start+31556926; //1 year valid
       string memory combined=string(abi.encodePacked(_userId,_division,_permitno,_signatory,_start,_end));
       bytes32 _hash1=sha256(abi.encode(combined));
       //bytes32 _hash2=sha256(_hash1);
