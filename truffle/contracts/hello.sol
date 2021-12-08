@@ -40,7 +40,7 @@ contract Hello {
       string memory combined=string(abi.encodePacked(_userId,_division,permitno,_signatory,_start,_end));
       bytes32 _hash1=sha256(abi.encode(combined));
       //bytes32 _hash2=sha256(_hash1);
-      if(notexist(_hash1)==true &&  block.timestamp<_end){
+      if(notexist(_hash1)==true){
       userDetails[_hash1]=user(_userId,permitno,_division,_signatory,_name,_start,_end,_canceled); //["Asddsadsk6484"]=>("raman","55","A","ramesh","hash for mongo")
       }
       return _hash1;
