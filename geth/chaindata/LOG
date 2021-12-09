@@ -208,3 +208,72 @@
 15:20:51.307080 db@open done T·27.0688ms
 16:15:48.762363 db@close closing
 16:15:48.769763 db@close done T·11.9139ms
+=============== Dec 8, 2021 (IST) ===============
+23:16:53.031081 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:16:53.041058 version@stat F·[3 1] S·637KiB[474KiB 162KiB] Sc·[0.75 0.00]
+23:16:53.041103 db@open opening
+23:16:53.041181 journal@recovery F·1
+23:16:53.044494 journal@recovery recovering @48
+23:16:53.106319 memdb@flush created L0@50 N·7758 S·413KiB "\x00\x98\xfb..\x98s\x90,v19240":"\xfd\x99_..ʟ\xe6,v19228"
+23:16:53.109502 version@stat F·[4 1] S·1MiB[887KiB 162KiB] Sc·[1.00 0.00]
+23:16:53.242121 db@janitor F·7 G·0
+23:16:53.242163 db@open done T·201.045209ms
+23:16:53.242265 table@compaction L0·4 -> L1·1 S·1MiB Q·19245
+23:16:53.559605 table@build created L1@53 N·13100 S·803KiB "\x00\x98\xfb..\x98s\x90,v19240":"\xfe\x88\xcf..H\xef\xcc,v361"
+23:16:53.559716 version@stat F·[0 1] S·803KiB[0B 803KiB] Sc·[0.00 0.01]
+23:16:53.628094 table@compaction committed F-4 S-246KiB Ke·0 D·5322 T·385.750119ms
+23:16:53.628296 table@remove removed @47
+23:16:53.628350 table@remove removed @44
+23:16:53.628447 table@remove removed @41
+23:16:53.628676 table@remove removed @40
+=============== Dec 9, 2021 (IST) ===============
+16:10:13.758879 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:10:13.793445 version@stat F·[0 1] S·803KiB[0B 803KiB] Sc·[0.00 0.01]
+16:10:13.793555 db@open opening
+16:10:13.793721 journal@recovery F·1
+16:10:13.800254 journal@recovery recovering @51
+16:10:13.958454 memdb@flush created L0@54 N·8790 S·465KiB "H\x00...v+\xe4,v19951":"unc..own,v19246"
+16:10:13.965217 version@stat F·[1 1] S·1MiB[465KiB 803KiB] Sc·[0.25 0.01]
+16:10:14.132696 db@janitor F·5 G·1
+16:10:14.132749 db@janitor removing table-50
+16:10:14.145046 db@open done T·351.456342ms
+=============== Dec 9, 2021 (IST) ===============
+16:30:36.355296 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:30:36.398673 version@stat F·[1 1] S·1MiB[465KiB 803KiB] Sc·[0.25 0.01]
+16:30:36.398844 db@open opening
+16:30:36.399219 journal@recovery F·1
+16:30:36.407291 journal@recovery recovering @55
+16:30:36.554868 memdb@flush created L0@57 N·1286 S·72KiB "H\x00\xf3..]=B,v29078":"unc..own,v28043"
+16:30:36.567119 version@stat F·[2 1] S·1MiB[537KiB 803KiB] Sc·[0.50 0.01]
+16:30:36.690530 db@janitor F·5 G·0
+16:30:36.690665 db@open done T·291.743455ms
+=============== Dec 9, 2021 (IST) ===============
+16:48:50.424662 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:48:50.424888 version@stat F·[2 1] S·1MiB[537KiB 803KiB] Sc·[0.50 0.01]
+16:48:50.424922 db@open opening
+16:48:50.425009 journal@recovery F·1
+16:48:50.428635 journal@recovery recovering @58
+16:48:50.465651 memdb@flush created L0@60 N·1647 S·91KiB "H\x01\x11..^\xe8\xd4,v29497":"unc..own,v29326"
+16:48:50.469697 version@stat F·[3 1] S·1MiB[629KiB 803KiB] Sc·[0.75 0.01]
+16:48:50.567816 db@janitor F·6 G·0
+16:48:50.567896 db@open done T·142.952346ms
+16:54:47.072038 db@close closing
+16:54:47.072151 db@close done T·111.767µs
+=============== Dec 9, 2021 (IST) ===============
+16:54:52.561195 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:54:52.561395 version@stat F·[3 1] S·1MiB[629KiB 803KiB] Sc·[0.75 0.01]
+16:54:52.561428 db@open opening
+16:54:52.561512 journal@recovery F·1
+16:54:52.565459 journal@recovery recovering @61
+16:54:52.612863 memdb@flush created L0@63 N·501 S·33KiB "\x06:\r..\xcds\xd5,v31469":"\xf5\x1c\xa5..f\tk,v31458"
+16:54:52.619351 version@stat F·[4 1] S·1MiB[663KiB 803KiB] Sc·[1.00 0.01]
+16:54:52.740152 db@janitor F·7 G·0
+16:54:52.740251 db@open done T·178.803978ms
+16:54:52.740375 table@compaction L0·4 -> L1·1 S·1MiB Q·31473
+16:54:52.966104 table@build created L1@66 N·20866 S·1MiB "\x00\x98\xfb..\x98s\x90,v19240":"\xfe\x88\xcf..H\xef\xcc,v361"
+16:54:52.966235 version@stat F·[0 1] S·1MiB[0B 1MiB] Sc·[0.00 0.01]
+16:54:53.066600 table@compaction committed F-4 S-176KiB Ke·0 D·4458 T·326.108969ms
+16:54:53.066948 table@remove removed @60
+16:54:53.067333 table@remove removed @57
+16:54:53.067552 table@remove removed @54
+16:54:53.100100 table@remove removed @53

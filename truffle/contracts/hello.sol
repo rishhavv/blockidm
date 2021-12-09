@@ -4,7 +4,7 @@ pragma experimental ABIEncoderV2;
 contract Hello {
 
    address contractOwner;
-   uint public permitno=0;
+   uint public permitno=1;
 
    // struct Date{
    //    uint day;
@@ -26,11 +26,14 @@ contract Hello {
 
    mapping(bytes32=>user)public userDetails;
 
-   constructor() public{
-      contractOwner=msg.sender;
-      permitno++;
-   }
+    event e(bytes32 _hash1);
 
+//    constructor() public{
+//       contractOwner=msg.sender;
+//       permitno++;
+//    }
+
+  
 
    function issuePermit(string memory _userId,string memory _division,string memory _name,string memory _signatory) public returns(bytes32){
       permitno++;
@@ -43,6 +46,7 @@ contract Hello {
       if(notexist(_hash1)==true &&  block.timestamp<_end){
       userDetails[_hash1]=user(_userId,permitno,_division,_signatory,_name,_start,_end,_canceled); //["Asddsadsk6484"]=>("raman","55","A","ramesh","hash for mongo")
       }
+      emit e(_hash1);
       return _hash1;
    }
 
