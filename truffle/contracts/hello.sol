@@ -25,11 +25,14 @@ contract Hello {
    }
 
    mapping(bytes32=>user)public userDetails;
+   mapping(uint=>user)public allUsers;
 
-   constructor() public{
-      contractOwner=msg.sender;
-      permitno++;
-   }
+
+//    constructor() public{
+//       // contractOwner=msg.sender;
+//       permitno++;
+//    }
+event issuePermitevent(bytes32 _hash1);
 
 
    function issuePermit(string memory _userId,string memory _division,string memory _name,string memory _signatory) public returns(bytes32){
@@ -40,9 +43,11 @@ contract Hello {
       string memory combined=string(abi.encodePacked(_userId,_division,permitno,_signatory,_start,_end));
       bytes32 _hash1=sha256(abi.encode(combined));
       //bytes32 _hash2=sha256(_hash1);
-      if(notexist(_hash1)==true &&  block.timestamp<_end){
+      if(notexist(_hash1)==true){
       userDetails[_hash1]=user(_userId,permitno,_division,_signatory,_name,_start,_end,_canceled); //["Asddsadsk6484"]=>("raman","55","A","ramesh","hash for mongo")
+      allUsers[permitno]=user(_userId,permitno,_division,_signatory,_name,_start,_end,_canceled);
       }
+      emit issuePermitevent(_hash1);
       return _hash1;
    }
 
@@ -60,16 +65,21 @@ contract Hello {
       return (tempEmptyStringTest.length==0?true:false);
    }
 
-   function all(bytes32[]  memory _hashes) public view returns(user[] memory){
-      uint size=permitno;
-      user[] memory _allUser=new user[](size);
-      for(uint i=0;i<permitno;i++){
-         bytes32 _userhash=_hashes[i];
-         user memory a=userDetails[_userhash];
-         _allUser[i]=user(a.userId,a.permitno,a.division,a.signatory,a.name,a.startDate,a.endDate,a.canceled);
-      }
-      return _allUser;
-   }
+   function all() public view returns(user[] memory){
+    uint size=permitno;
+   user[] memory _allUser=new user[](size);
+    //   for(uint i=0;i<permitno;i++){
+    //      bytes32 _userhash=_hashes[i];
+    //      user memory a=userDetails[_userhash];
+    //      _allUser[i]=user(a.userId,a.permitno,a.division,a.signatory,a.name,a.startDate,a.endDate,a.canceled);
+    //   }
+     for(uint i=1;i<=size;i++){
+        user memory a=allUsers[i];
+        _allUser[i-1]=user(a.userId,a.permitno,a.division,a.signatory,a.name,a.startDate,a.endDate,a.canceled);
+
+    }
+    return _allUser;
+  }
 
    // function updatePermit(bytes32 _hash1,uint _newend)public{
 
@@ -79,5 +89,4 @@ contract Hello {
    }
 
    //getUserData , UpdatePermit, cancelPermit, getDataLocationWise
-
 }
