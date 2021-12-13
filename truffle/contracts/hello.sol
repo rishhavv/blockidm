@@ -27,6 +27,7 @@ contract Hello {
    mapping(bytes32=>user)public userDetails;
 
     event e(bytes32 _hash1);
+    event r(string msg,bytes32 _hash1);
 
 //    constructor() public{
 //       contractOwner=msg.sender;
@@ -79,10 +80,16 @@ contract Hello {
          // return user(a.userId,a.permitno,a.division,a.signatory,a.name,a.startDate,a.endDate,a.canceled);
    }
 
-   // function updatePermit(bytes32 _hash1,uint _newend)public{
-
-   // }
+   function renewPermit(bytes32 _hash1)public{
+      uint _start=block.timestamp;// current timestamp
+      uint _end=_start+31556926; //1 year valid
+      userDetails[_hash1].startDate=_start;
+      userDetails[_hash1].endDate=_end;
+      userDetails[_hash1].canceled=false;
+      emit r("permit renewed",_hash1);
+   }
    function cancelPermit(bytes32 _hash1)public{
+      
       userDetails[_hash1].canceled=true;
       
    }
