@@ -40,7 +40,7 @@ contract Hello {
       bool _canceled=false;
       uint _start=block.timestamp;// current timestamp
       uint _end=_start+31556926; //1 year valid
-      string memory combined=string(abi.encodePacked(_userId,_division,permitno,_signatory,_start,_end));
+      string memory combined=string(abi.encodePacked(_userId,_division,permitno,_signatory));
       bytes32 _hash1=sha256(abi.encode(combined));
       //bytes32 _hash2=sha256(_hash1);
       if(notexist(_hash1)==true &&  block.timestamp<_end){
@@ -74,12 +74,17 @@ contract Hello {
       }
       return _allUser;
    }
+   function userdata(bytes32 _hash) public view returns(user memory){
+         return userDetails[_hash];
+         // return user(a.userId,a.permitno,a.division,a.signatory,a.name,a.startDate,a.endDate,a.canceled);
+   }
 
    // function updatePermit(bytes32 _hash1,uint _newend)public{
 
    // }
    function cancelPermit(bytes32 _hash1)public{
       userDetails[_hash1].canceled=true;
+      
    }
 
    //getUserData , UpdatePermit, cancelPermit, getDataLocationWise

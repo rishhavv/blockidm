@@ -39,8 +39,8 @@ module.exports = {
     port:8545,
     network_id: "*",       // Any network (default: none)
     from:"cc9edf35d992c680aef7ae4d83c6ce9c2582b075",
-    gas:8000000,
-    gasprice:0,
+    gas:4700000,
+    gasprice:10,
     Websocket:true
     },
   networks: {
@@ -55,8 +55,8 @@ module.exports = {
       port: 8545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
       from:"cc9edf35d992c680aef7ae4d83c6ce9c2582b075",
-      gas:8000000,
-      gasprice:0,
+      gas:4700000,
+      gasprice:10,
       Websocket:true
      },
     // Another network with more advanced options...
